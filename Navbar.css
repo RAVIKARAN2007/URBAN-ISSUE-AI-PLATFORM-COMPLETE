@@ -1,0 +1,143 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  background: rgba(5, 8, 22, 0.95); /* Slightly darker for better mobile visibility */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+  letter-spacing: -1px;
+  z-index: 1100; /* Stays above menu */
+}
+
+.nav-logo span {
+  color: #3b82f6;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-report-btn {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6 !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.nav-report-btn:hover {
+  background: #3b82f6 !important;
+  color: white !important;
+}
+
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 10px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- HAMBURGER MENU ICON --- */
+.hamburger {
+  display: none; /* Hidden on Desktop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+  z-index: 1100;
+}
+
+.bar {
+  width: 28px;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show on Mobile */
+  }
+
+  /* Rotate bars into an 'X' when open */
+  .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .hamburger.active .bar:nth-child(2) { opacity: 0; }
+  .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    height: 100vh;
+    width: 80%; /* Takes up 80% of width */
+    background: #050816;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transition: 0.4s ease-in-out;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+  }
+
+  .nav-links.mobile-active {
+    right: 0; /* Slide into view */
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-auth {
+    flex-direction: column;
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    width: 100%;
+  }
+
+  .nav-report-btn {
+    width: 80%;
+    text-align: center;
+  }
+}
